@@ -22,6 +22,14 @@ def getRecomendation():
     data = algorithm.use(book_name)
     return jsonify(data = data)
 
+@app.route('/api/train/')
+@cross_origin()
+def trainAlgorithm():
+
+    algorithm = Algorithm()
+    data = algorithm.train()
+    return jsonify(res = True)
+
 @app.route('/')
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
