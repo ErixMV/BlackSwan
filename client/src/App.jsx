@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Recomendation from "./components/Recomendation";
+import Footer from "./components/Footer";
 
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/recomendation" component={Recomendation} />
           <Route path="/" component={Home} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
