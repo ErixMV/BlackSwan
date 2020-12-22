@@ -1,0 +1,65 @@
+.section {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.block-content {
+    padding: 20px 0px;
+}
+
+.block-content div:first-child {
+    padding: 10px;
+}
+
+.socrates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.socrates div {
+    margin: 0px 10px;
+}
+
+.socrates div:last-child {
+    align-self: center;
+}
+
+.socrates-img img {
+    height: 100px;
+}
+
+.socrates-credits {
+    padding-top: 20px;
+}
+
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.member-photo {
+    border-radius: 50%;
+    height: 250px;
+}
+
+.member-icon {
+    width: 40px;
+}
+
+.member-icon:hover {
+    transform: translateY(-2px);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+
+}

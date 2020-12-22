@@ -2,9 +2,9 @@ import "./footer.css"
 
 const Footer = () => {
     return (
-        <div>
+        <div className="footer">
             <span>
-                © Black Swan Proyect
+                Copyright © 2020 All Rights Reserved by The Black Swan.
              </span>
         </div>
     )

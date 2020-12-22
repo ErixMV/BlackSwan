@@ -19,27 +19,28 @@ const Home = () => {
         <div className="outer-home">
             <div className="home-header">
                 <span className="home-title">
-                    Obtén recomendaciones personalizadas
+                    Get customized recommendations
                 </span>
             </div>
             <main className="home">
-                <div className="main-l">
+                <div className="main-l ">
                     <img src="/images/home1.jpg" className="img-home" alt="library with a lot of lamps" />
                 </div>
                 <div className="main-r">
-                    <div className="block-header"><span>¿Cómo funciona?</span></div>
+                    <div className="block-header"><span>How does it work?</span></div>
                     <div className="home-content">
-                        <p>Recibe recomendaciones personalizadas de una gran cantidad de libros, escoge uno y te propondremos otros similares que muy posiblemnte te interesen.</p>
+                        <p>Get your very own recommendations from a large database. It's simple: you choose one book that you like, 
+                           and we will show you books that you're likely to enjoy aswell.</p>
                     </div>
                     <div className="c-link-rec">
-                        <Link to="/recomendation"><CustomBtn style={{ color: "#99521c !important" }} variant="outlined" color="primary">hola</CustomBtn></Link>
+                        <Link to="/recomendation" className="button2">Get started</Link>
                         {/* <Link to="/recomendation" className="home_to_recomendations"><CustomBtn variant="outlined" color="secondary">hola</CustomBtn></Link> */}
                     </div>
                 </div>
             </main>
             <article className="content-block">
                 <div className="article-header">
-                    Nuestras recomendaciones
+                    Our recommendations
                 </div>
                 <div className="books-row">
                     <div>
@@ -60,7 +61,7 @@ const Home = () => {
                     {/* <img src="/images/books/thelovelybonesanovel.jpg" className="book-cover" alt=""/> */}
                 </div>
                 <div className="article-footer c-link-rec">
-                    <Link to="/recomendation"><CustomBtn style={{ color: "#99521c !important" }} variant="outlined" color="primary">hola</CustomBtn></Link>
+                    <Link to="/recomendation" className="button2">hola</Link>
                 </div>
             </article>
         </div>

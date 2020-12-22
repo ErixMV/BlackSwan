@@ -76,7 +76,7 @@ const Recomendation = () => {
             <main className="rec">
                 <div className="rec-l" style={{height: checked ? "fit-content": "auto"}}>
                     <div className="form-title">
-                        <span className="f-title">Buscar recomendaciones</span>
+                        <span className="f-title">Get recommendations</span>
                     </div>
                     <form className={classes.root} noValidate autoComplete="off">
                         <div className="input-container">
