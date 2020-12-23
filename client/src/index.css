@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   color: #333
 }
 
@@ -28,4 +29,9 @@ a {
 .break {
   height: 0;
   flex-basis: 100%
+}
+
+hr {
+  width: 75%;
+  margin: auto;
 }

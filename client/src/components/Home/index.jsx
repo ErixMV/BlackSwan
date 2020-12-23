@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import Button from '@material-ui/core/Button';
-import styled from 'styled-components';
+// import Button from '@material-ui/core/Button';
+// import styled from 'styled-components';
 import Media from 'react-media';
 
 import "./home.css"
 
-const CustomBtn = styled(Button)`
-    text-decoration: none;
-    color: #99521c !important;
-    transition: all .5s;
-    &:hover{
-        background: #99521c !important;
-    }
-`
+// const CustomBtn = styled(Button)`
+//     text-decoration: none;
+//     color: #99521c !important;
+//     transition: all .5s;
+//     &:hover{
+//         background: #99521c !important;
+//     }
+// `
 
 const Home = () => {
     return (

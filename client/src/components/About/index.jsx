@@ -1,22 +1,19 @@
+import Media from 'react-media';
 import "./about.css"
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import styled from 'styled-components';
-import MemberCard from "./MemberCard"
+import MemberCard from "./MemberCard";
 
 const About = () => {
 
     const members = [
-        {member: "erix", extension:"png", fullname: "Erix Mamani Villacresis", title: "Full Stack Developer", linkedin: "https://www.linkedin.com/in/erixmamani/", email: "erixmv022@gmail.com"},
-        {member: "vladimir", extension:"jfif", fullname: "Vladimir Smirnov", title: "Data Scientist", linkedin: "https://www.linkedin.com/in/erixmamani/", email: "erixmv022@gmail.com"},
-        {member: "adelina", extension:"jpeg", fullname: "Adelina Muntean", title: "Junior Web Developer", linkedin: "https://www.linkedin.com/in/erixmamani/", email: "erixmv022@gmail.com"}
+        { member: "erix", extension: "png", fullname: "Erix Mamani Villacresis", title: "Full Stack Developer", linkedin: "https://www.linkedin.com/in/erixmamani/", email: "erixmv022@gmail.com" },
+        { member: "vladimir", extension: "jfif", fullname: "Vladimir Smirnov", title: "Data Scientist", linkedin: "https://www.linkedin.com/in/vladismirn/", email: "vsmirn00@gmail.com" },
+        { member: "adelina", extension: "jpeg", fullname: "Adelina Muntean", title: "Junior Web Developer", linkedin: "https://www.linkedin.com/in/adelina-muntean/", email: "adelina.muntean97@gmail.com" }
     ]
 
-    const CardButton = styled.a`
+    const renderMembers = ({ member, extension, fullname, title, linkedin, email }, i) =>
+        <MemberCard key={member} member={member} extension={extension} fullname={fullname} title={title} linkedin={linkedin} email={email} />
 
-    `;
 
     return (
         <div className="section about">
@@ -27,6 +24,7 @@ const About = () => {
                 <div>
                     <h2>Our values</h2>
                 </div>
+                <hr />
                 <div className="ideology">
                     <div className="socrates">
                         <div className="socrates-img">
@@ -50,61 +48,11 @@ const About = () => {
             <div className="section content">
                 <div className="block-content">
                     <div>
-                        <h2>Our Team</h2>
+                        <h2 className="section-title">Our Team</h2>
                     </div>
+                    <hr />
                     <div className="members">
-                        <MemberCard member="erix" extension="png" fullname="Erix Mamani Villacresis" title="Full Stack Developer" linkedin="https://www.linkedin.com/in/erixmamani/" email="erixmv022@gmail.com" />
-                        <Card variant="outlined">
-                            <CardContent>
-                                <div className="photo">
-                                    <img className="member-photo" src="/images/about/profiles/erix.png" alt="" />
-                                </div>
-                                <div className="member-name">
-                                    <b>Erix Mamani Villacresis</b>
-                                    <p>Full Stack Developer</p>
-                                </div>
-                            </CardContent>
-                            <CardActions>
-                                <div className="buttons">
-                                    <CardButton target="_BLANC" href="https://www.linkedin.com/in/erixmamani/"><img className="member-icon" src="/images/about/icons/linkedin.svg" alt="Author: https://www.flaticon.es/autores/pixel-buddha" /></CardButton>
-                                    <CardButton target="_BLANC" href="mailto:erixmv022@gmail.com"><img className="member-icon" src="/images/about/icons/email.svg" alt="Author: https://www.flaticon.es/autores/pixel-buddha" /></CardButton>
-                                </div>
-                            </CardActions>
-                        </Card>
-                        <Card variant="outlined">
-                            <CardContent>
-                                <div className="photo">
-                                    <img className="member-photo" src="/images/about/profiles/vladimir.jfif" alt="" />
-                                </div>
-                                <div className="member-name">
-                                    <b>Vladimir Smirnov</b>
-                                    <p>Data Scientist</p>
-                                </div>
-                            </CardContent>
-                            <CardActions>
-                                <div className="buttons">
-                                    <CardButton target="_BLANC" href="https://www.linkedin.com/in/vladismirn/"><img className="member-icon" src="/images/about/icons/linkedin.svg" alt="Author: https://www.flaticon.es/autores/pixel-buddha" /></CardButton>
-                                    <CardButton target="_BLANC" href="mailto:vsmirn00@gmail.com"><img className="member-icon" src="/images/about/icons/email.svg" alt="Author: https://www.flaticon.es/autores/pixel-buddha" /></CardButton>
-                                </div>
-                            </CardActions>
-                        </Card>
-                        <Card variant="outlined">
-                            <CardContent>
-                                <div className="photo">
-                                    <img className="member-photo" src="/images/about/profiles/adelina.jpeg" width="" height="" alt="" />
-                                </div>
-                                <div className="member-name">
-                                    <b>Adelina Muntean</b>
-                                    <p>Junior Web Developer</p>
-                                </div>
-                            </CardContent>
-                            <CardActions>
-                                <div className="buttons">
-                                    <CardButton target="_BLANC" href="https://www.linkedin.com/in/adelina-muntean/"><img className="member-icon" src="/images/about/icons/linkedin.svg" alt="Author: https://www.flaticon.es/autores/pixel-buddha" /></CardButton>
-                                    <CardButton target="_BLANC" href="mailto:adelina.muntean97@gmail.com"><img className="member-icon" src="/images/about/icons/email.svg" alt="Author: https://www.flaticon.es/autores/pixel-buddha" /></CardButton>
-                                </div>
-                            </CardActions>
-                        </Card>
+                        {members.map(renderMembers)}
                     </div>
                 </div>
             </div>

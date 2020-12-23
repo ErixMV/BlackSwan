@@ -1,7 +1,10 @@
 .section {
     text-align: center;
-    width: 80%;
     margin: auto;
+}
+
+.section-title {
+    font-size: 2rem;
 }
 
 .block-content {
@@ -39,6 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 50px;
 }
 
 .member-photo {
@@ -60,6 +64,14 @@
     width: 100%;
 }
 
-@media (max-width: 1200px) {
+.name {
+    font-size: 1.3rem;
+    line-height: 2;
+    letter-spacing: .3px;
+}
 
+@media (max-width: 1366px) {
+    .members .MuiPaper-root:nth-child(2)::after {
+        content: "<div className='break'></div>";
+    }
 }
