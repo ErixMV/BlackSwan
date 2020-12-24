@@ -45,6 +45,22 @@ class Algorithm:
 
         return (users_data, books, rating_data)
 
+    def booksData(self):
+
+        try:
+            output = []
+
+            with open(self.__pkl_matrix, 'rb') as handle:
+                book_pivot = pickle.load(handle)
+
+            df_books = list(book_pivot.index)
+
+            for book in df_books:
+                output.append({"title": book})
+            return output
+        except Exception as e:
+            print(e)
+
     def train(self):
 
         users_data, books, rating_data = self.__formatted_data()
@@ -101,6 +117,6 @@ class Algorithm:
                 if not i:
                     result = book_pivot.index[suggestions[i]]
 
-            return list(result)       
+            return list(result)
         except Exception as e:
             print(e)

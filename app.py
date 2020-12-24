@@ -30,7 +30,17 @@ def trainAlgorithm():
     data = algorithm.train()
     return jsonify(res = True)
 
-@app.route('/')
+@app.route("/api/books/")
+@cross_origin()
+def getBooksName():
+
+    algorithm = Algorithm()
+    data = algorithm.booksData()
+
+    return jsonify(data = data)
+
+
+@app.route('*')
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 

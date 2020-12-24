@@ -4,14 +4,14 @@
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .block-content {
-    padding: 20px 0px;
+    padding: 50px 0px;
 }
 
-.block-content div:first-child {
+.block-content .outer-section-title:first-child {
     padding: 10px;
 }
 
@@ -37,6 +37,12 @@
     padding-top: 20px;
 }
 
+.member-card {
+    -webkit-box-shadow: 3px 3px 26px -16px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 3px 3px 26px -16px rgba(0, 0, 0, 1);
+    box-shadow: 3px 3px 26px -16px rgba(0, 0, 0, 1);
+}
+
 
 .members {
     display: flex;
@@ -45,9 +51,11 @@
     margin-top: 50px;
 }
 
+
 .member-photo {
     border-radius: 50%;
     height: 250px;
+    padding: 30px;
 }
 
 .member-icon {

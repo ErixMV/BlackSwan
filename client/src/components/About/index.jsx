@@ -1,4 +1,3 @@
-import Media from 'react-media';
 import "./about.css"
 
 import MemberCard from "./MemberCard";
@@ -17,12 +16,12 @@ const About = () => {
 
     return (
         <div className="section about">
-            <div className="title">
+            {/* <div className="title">
                 <h1>The Black Swan Team</h1>
-            </div>
+            </div> */}
             <div className="block-content">
-                <div>
-                    <h2>Our values</h2>
+                <div className="outer-section-title">
+                    <h2 className="section-title">Our values</h2>
                 </div>
                 <hr />
                 <div className="ideology">

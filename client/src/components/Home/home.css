@@ -1,5 +1,5 @@
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 .home-header {
@@ -13,8 +13,10 @@
 
 .home {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
 }
 
 /*.main-l, .main-r {
@@ -22,24 +24,21 @@
 }*/
 
 .main-l {
-    text-align: center;
-    background-color:#2196F3;
-    padding:20px;
-    float:left;
-    width: 50%;
+    text-align: right;
+    /* background-color: #2196F3; */
+    margin: 20px 0px 20px;
+    width: 45%;
 }
 
 .img-home {
-    width: 80%;
+    width: 100%;
 }
 
 .main-r {
     padding: 0px 50px;
-    background-color:#f1f1f1;
-    padding:20px;
-    float:left;
-    width:50%; 
-    width: 50%;
+    background-color: #f1f1f1;
+    margin: 20px 0px;
+    width: 45%;
 }
 
 
@@ -52,7 +51,7 @@
     font-size: 35px;
 }
 
-.home-content{
+.home-content {
     font-size: 22px;
     text-align: justify;
 }
@@ -88,62 +87,77 @@
     flex-wrap: wrap;
 }
 
-.book-cover{
-    height: 400px;
+.book-cover {
+    height: 350px;
     padding: 10px 0px
 }
 
 
 
-.button2 {
-    background-color:#912900;
-	-webkit-border-top-left-radius:8px;
-	-moz-border-radius-topleft:8px;
-	border-top-left-radius:8px;
-	-webkit-border-top-right-radius:8px;
-	-moz-border-radius-topright:8px;
-	border-top-right-radius:8px;
-	-webkit-border-bottom-right-radius:8px;
-	-moz-border-radius-bottomright:8px;
-	border-bottom-right-radius:8px;
-	-webkit-border-bottom-left-radius:8px;
-	-moz-border-radius-bottomleft:8px;
-	border-bottom-left-radius:8px;
-    text-indent:0;
-	border:1px solid #912900;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-    height:50px;
-	line-height:50px;
-    width:140px;
-	text-decoration:none;
-	text-align:center;
-    text-shadow:1px 1px 0px #912900;
-    
-}.button2:hover {
-    background-color:#b83100;
-    
-}.button2:active {
-	position:relative;
-	top:1px;
-}
-
 @media (max-width: 1200px) {
-    .book-cover{
+    .book-cover {
         height: 250px;
     }
 }
-  
+
 
 /* Use a media query to add a break point at 800px: */
 @media screen and (max-width:800px) {
-    .main-r, .main-l {
-      width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+
+    .main-r,
+    .main-l {
+        width: 100%;
+        /* The width is 100%, when the viewport is 800px or smaller */
     }
 }
-  
-  
+
+.custom-btn {
+    position: relative;
+    padding: 1em 1.5em;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    margin: 1em 0.8em;
+}
+
+.btn-type1 {
+    color: #566473
+}
+
+.btn-type1::after,
+.btn-type1::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+}
+
+.btn-type1::after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #566473;
+    border-right-color: #566473;
+}
+
+.btn-type1::before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #566473;
+    border-left-color: #566473;
+}
+
+.btn-type1:hover::after,
+.btn-type1:hover::before {
+    width: 100%;
+    height: 100%;
+}
