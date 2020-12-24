@@ -37,7 +37,7 @@ const About = () => {
                     </div>
 
                 </div>
-                <div>
+                <div  className="text-ideology">
                     <p>Globalization and the ease of access to the Internet have meant that information is always accessible and, consequently, is less valued.</p>
                     <br />
                     <p>We believe that a society that reads is not only more cultured, it is also more prone to act with kindness.</p>

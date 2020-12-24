@@ -9,16 +9,29 @@
 
 .block-content {
     padding: 50px 0px;
+    width: 65%;
+    margin: auto;
 }
 
 .block-content .outer-section-title:first-child {
     padding: 10px;
 }
 
+.ideology {
+    margin: 40px 0px;
+    width: fit-content;
+    text-align: center;
+}
+
 .socrates {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.text-ideology {
+    text-align: left;
+    margin: 40px 0px 0px 10px;
 }
 
 .socrates div {
