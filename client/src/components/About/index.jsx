@@ -23,33 +23,35 @@ const About = () => {
                 <div className="outer-section-title">
                     <h2 className="section-title">Our values</h2>
                 </div>
-                <hr />
-                <div className="ideology">
-                    <div className="socrates">
-                        <div className="socrates-img">
-                            <img src="/images/about/socrates.jpg" alt="" />
+                <div>
+                    <div className="ideology">
+                        <div className="socrates">
+                            <div className="socrates-img">
+                                <img src="/images/about/socrates.jpg" alt="" />
+                            </div>
+                            <div>
+                                <p><q><i>Εν μόνον αγαθόν είναι, την επιστήμην, και εν μόνον κακόν, την αμαθίαν</i></q></p>
+                                <p><q><i>There is only one good, knowledge, and one evil, ignorance</i></q></p>
+                                <p className="socrates-credits">Sócrates, 469 - 399 BC, Ancient Greek Philosopher</p>
+                            </div>
                         </div>
-                        <div>
-                            <p><q><i>Εν μόνον αγαθόν είναι, την επιστήμην, και εν μόνον κακόν, την αμαθίαν</i></q></p>
-                            <p><q><i>There is only one good, knowledge, and one evil, ignorance</i></q></p>
-                            <p className="socrates-credits">Sócrates, 469 - 399 BC, Ancient Greek Philosopher</p>
-                        </div>
-                    </div>
 
-                </div>
-                <div  className="text-ideology">
-                    <p>Globalization and the ease of access to the Internet have meant that information is always accessible and, consequently, is less valued.</p>
-                    <br />
-                    <p>We believe that a society that reads is not only more cultured, it is also more prone to act with kindness.</p>
-                    {/* <p>Our goal is to encourage people to regain or acquire the habit of active reading. </p> */}
+                    </div>
+                    <div className="text-ideology">
+                        <p><b>We stand for a reading society. We stand for a society of values.</b></p>
+                        <p>From our perspective, we strongly believe that knowledge can add value not only to the individual mind but also to the whole civilization. Our project is related not only to our recommendation system but also to the values we want to share with the world.</p>
+                        <p>Reading boosts memory, cognitive processes, focus and communication skills. Spending one hour a day reading is a small step of effort which brings a giant step of positive consequences. The wisest people on earth used to read. We lost contact with this ancestral technology called books. We are used to easy and fast information which makes our memory superficial. But what happened to our deep learning?</p>
+                        <br />
+                        <p>From The Black Swan we stand for the idea that we don’t need to relinquish from new technologies but combine them with our traditional technologies of knowledge.  Thus we will develop our full potential as humans and as society.</p>
+                        {/* <p>Our goal is to encourage people to regain or acquire the habit of active reading. </p> */}
+                    </div>
                 </div>
             </div>
             <div className="section content">
                 <div className="block-content">
-                    <div>
+                    <div className="outer-section-title">
                         <h2 className="section-title">Our Team</h2>
                     </div>
-                    <hr />
                     <div className="members">
                         {members.map(renderMembers)}
                     </div>

@@ -7,20 +7,26 @@ from algorithm import Algorithm
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 cors = CORS(app)
 
+
 @app.route('/api')
 @cross_origin()
 def Welcome():
     return "Welcome to the API!!!"
 
-@app.route('/api/recomend/')
+
+@app.route('/api/recomend/', methods=['POST'])
 @cross_origin()
 def getRecomendation():
 
-    book_name = str(request.args.get('book'))
+    # book_name = request.form
+    data = request.get_json()
+    book = data.get('book')
+    # book_name = str(request.form.get('book'))
 
     algorithm = Algorithm()
-    data = algorithm.use(book_name)
-    return jsonify(data = data)
+    data = algorithm.use(book)
+    return jsonify(data=data)
+
 
 @app.route('/api/train/')
 @cross_origin()
@@ -28,7 +34,8 @@ def trainAlgorithm():
 
     algorithm = Algorithm()
     data = algorithm.train()
-    return jsonify(res = True)
+    return jsonify(res=True)
+
 
 @app.route("/api/books/")
 @cross_origin()
@@ -37,10 +44,10 @@ def getBooksName():
     algorithm = Algorithm()
     data = algorithm.booksData()
 
-    return jsonify(data = data)
+    return jsonify(data=data)
 
 
-@app.route('*')
+@app.route('/*')
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 

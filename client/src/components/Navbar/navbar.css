@@ -1,5 +1,9 @@
 .outer-nav {
     padding: 15px;
+    width: 89%;
+    margin: auto;
+    border-top: 1.7px solid #333;
+    border-bottom: 1.7px solid #333;
 }
 
 .nav ul {

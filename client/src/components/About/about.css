@@ -7,19 +7,25 @@
     font-size: 1.8rem;
 }
 
-.block-content {
+.about .block-content {
     padding: 50px 0px;
     width: 65%;
     margin: auto;
 }
 
-.block-content .outer-section-title:first-child {
-    padding: 10px;
+.about .outer-section-title {
+    width: fit-content;
+    border-bottom: 2px solid lightgray;
+}
+
+.about .block-content .outer-section-title:first-child {
+    padding: 10px 0px 5px;
+    text-align: left;
 }
 
 .ideology {
     margin: 40px 0px;
-    width: fit-content;
+    /* width: fit-content; */
     text-align: center;
 }
 
@@ -31,7 +37,14 @@
 
 .text-ideology {
     text-align: left;
-    margin: 40px 0px 0px 10px;
+    margin: 40px 0px 0px 0px;
+    line-height: 1.6;
+    letter-spacing: .02rem;
+    text-align: justify;
+}
+
+.text-ideology p {
+    padding: 5px 0px;
 }
 
 .socrates div {
@@ -60,7 +73,7 @@
 .members {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 50px;
 }
 
@@ -91,8 +104,19 @@
     letter-spacing: .3px;
 }
 
-@media (max-width: 1366px) {
-    .members .MuiPaper-root:nth-child(2)::after {
-        content: "<div className='break'></div>";
+@media (max-width: 1290px) {
+    .about .block-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 880px) {
+    .members {
+        flex-direction: column;
+    }
+
+    .card-member {
+        width: 270px;
+        margin: 10px auto;
     }
 }

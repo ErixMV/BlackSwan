@@ -117,6 +117,6 @@ class Algorithm:
                 if not i:
                     result = book_pivot.index[suggestions[i]]
 
-            return list(result)
+            return list(result[1:])
         except Exception as e:
             print(e)
