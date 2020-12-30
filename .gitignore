@@ -1,6 +1,9 @@
 /.venv/
+/client/build
 __pycache__
 .vscode
 matrix.pkl
 model.pkl
+final_ratings.pkl
+simMatrix.pkl
 client/.eslintcache
