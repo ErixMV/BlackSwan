@@ -18,13 +18,11 @@ def Welcome():
 @cross_origin()
 def getRecomendation():
 
-    # book_name = request.form
     data = request.get_json()
     book = data.get('book')
-    # book_name = str(request.form.get('book'))
 
     algorithm = Algorithm()
-    data = algorithm.use(book)
+    data = algorithm.use(book, "corr")
     return jsonify(data=data)
 
 
@@ -47,7 +45,9 @@ def getBooksName():
     return jsonify(data=data)
 
 
-@app.route('/*')
+@app.route('/')
+@app.route('/about')
+@app.route('/recomendation')
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 

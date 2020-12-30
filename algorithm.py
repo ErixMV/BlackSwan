@@ -16,6 +16,8 @@ class Algorithm:
 
     __pkl_model = "model.pkl"
     __pkl_matrix = "matrix.pkl"
+    __pkl_sim = "simMatrix.pkl"
+    __pkl_final_ratings = "final_ratings.pkl"
 
     def __init__(self):
         pass
@@ -65,7 +67,7 @@ class Algorithm:
 
         users_data, books, rating_data = self.__formatted_data()
 
-        x = rating_data['user_id'].value_counts() > 200
+        x = rating_data['user_id'].value_counts() > 175
         y = x[x].index
 
         rating_data = rating_data[rating_data['user_id'].isin(y)]
@@ -85,6 +87,9 @@ class Algorithm:
         book_pivot = final_ratings.pivot_table(
             columns='user_id', index='title', values='rating')
 
+        sim_pivot = final_ratings.pivot_table(
+            columns='title', index='user_id', values='rating')
+
         book_pivot.fillna(0, inplace=True)
 
         book_sparse = csr_matrix(book_pivot)
@@ -96,27 +101,57 @@ class Algorithm:
         with open(self.__pkl_model, 'wb') as handle:
             pickle.dump(model, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
+        with open(self.__pkl_final_ratings, 'wb') as handle:
+            pickle.dump(final_ratings, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
         with open(self.__pkl_matrix, 'wb') as handle:
             pickle.dump(book_pivot, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-    def use(self, book_name):
+        with open(self.__pkl_sim, 'wb') as handle:
+            pickle.dump(sim_pivot, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-        try:
-            with open(self.__pkl_model, 'rb') as handle:
-                model = pickle.load(handle)
+    def use(self, book_name, method="corr"):
+        if method == "corr":
+            try:
+                with open(self.__pkl_sim, 'rb') as handle:
+                    pivot_ratings = pickle.load(handle)
+                with open(self.__pkl_final_ratings, 'rb') as handle:
+                    final_ratings = pickle.load(handle)
 
-            with open(self.__pkl_matrix, 'rb') as handle:
-                book_pivot = pickle.load(handle)
+                sample = book_name
+                sampleRatings = pivot_ratings[sample]
+                similarBooks = pivot_ratings.corrwith(sampleRatings)
+                similarBooks = similarBooks.dropna()
+                similarBooks.sort_values(ascending=False)
 
-            book_id = np.where(book_pivot.index == book_name)[0][0]
+                bookStats = final_ratings.groupby('title').agg({'rating': [np.size, np.mean]})
 
-            distances, suggestions = model.kneighbors(
-                book_pivot.iloc[book_id, :].values.reshape(1, -1))
+                df = pd.DataFrame(similarBooks)
+                df = bookStats.join(pd.DataFrame(similarBooks, columns=['similarity']))
+                df = df.sort_values(['similarity'], ascending=False)[:15]
+                result = list(df.index[1:5])
 
-            for i in range(len(suggestions)):
-                if not i:
-                    result = book_pivot.index[suggestions[i]]
+                return result
+            except Exception as e:
+                print(e)
+        else:
+    
+            try:
+                with open(self.__pkl_model, 'rb') as handle:
+                    model = pickle.load(handle)
 
-            return list(result[1:])
-        except Exception as e:
-            print(e)
+                with open(self.__pkl_matrix, 'rb') as handle:
+                    book_pivot = pickle.load(handle)
+
+                book_id = np.where(book_pivot.index == book_name)[0][0]
+
+                distances, suggestions = model.kneighbors(
+                    book_pivot.iloc[book_id, :].values.reshape(1, -1))
+
+                for i in range(len(suggestions)):
+                    if not i:
+                        result = book_pivot.index[suggestions[i]]
+
+                return list(result[1:])
+            except Exception as e:
+                print(e)

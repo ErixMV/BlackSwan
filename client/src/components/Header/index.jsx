@@ -1,15 +1,14 @@
-import { React } from 'react';
-import "./header.css";
+import "./header.sass";
 
-
-const Header = () => {
+export const Header = () => {
     return (
-        <div className="outer-header">
-            <header className="header" style={{ width: "60%", margin: "auto", paddingBottom: "10px"}}>
-                <img className="logo" src="/images/swan.png" alt="swan"/><span id="title"> THE BLACK SWAN</span>
-            </header>
-        </div>
-    )
-}
-
-export default Header;
+        <header id="header">
+            <div className="inner-header">
+                <div className="logo-title">
+                    <img className="logo" src="/images/swan.png" alt="swan" />
+                    <span id="title"> THE BLACK SWAN</span>
+                </div>
+            </div>
+        </header>
+    );
+};

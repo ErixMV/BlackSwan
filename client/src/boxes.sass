@@ -1,0 +1,24 @@
+@import 'src/mixins.sass'
+    
+.block-content
+    padding: 50px 0px
+    margin: auto
+
+.section-title-container
+    border-bottom: 2px solid lightgray
+    width: fit-content
+    margin-bottom: 40px
+
+    .section-title
+        font-size: 1.8rem
+
+.w-65
+    padding: 20px 17.5% 30px
+    @include large
+        padding: 20px 7% 30px
+    @include medium
+        padding: 20px 20px 30px
+    @include small
+
+.t-center
+    text-align: center

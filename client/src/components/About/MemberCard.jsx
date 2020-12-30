@@ -7,7 +7,7 @@ const MemberCard = ({member, extension, fullname, title, linkedin, email}) => {
     const profilePath = "/images/about/profiles/";
 
     return (
-        <Card variant="outlined" className="card-member" >
+        <Card variant="outlined" className="member-card" >
             <CardContent>
                 <div className="photo">
                     <img className="member-photo" src={`${profilePath}${member}.${extension}`} alt="Member profile" />

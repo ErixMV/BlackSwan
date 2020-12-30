@@ -1,13 +1,10 @@
-import "./footer.css"
+import "./footer.sass"
 
-const Footer = () => {
+export const Footer = () => {
     return (
-        <div className="footer">
-            <span>
-                Copyright © 2020 All Rights Reserved by The Black Swan.
-             </span>
-        </div>
+        <footer id="footer">
+            <span>Copyright © 2020 </span>
+            <span>All Rights Reserved by The Black Swan.</span>
+        </footer>
     )
-}
-
-export default Footer
+};

@@ -1,30 +1,15 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
-import "./recomendation.css"
+import "./recomendation.sass";
 
+import { useEffect, useState } from "react";
+
+import axios from "axios";
 import Media from 'react-media';
 
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-// import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import { TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab';
+import { BookCard } from './BookCard';
 
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '25ch',
-        },
-    },
-}));
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -44,20 +29,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-// function createData(name, calories, fat, carbs, protein) {
-//     return { name, calories, fat, carbs, protein };
-// }
-
-// const rows = [
-//     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-//     createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//     createData('Eclair', 262, 16.0, 24, 6.0),
-//     createData('Cupcake', 305, 3.7, 67, 4.3),
-//     createData('Gingerbread', 356, 16.0, 49, 3.9),
-// ];
-
-const Recomendation = () => {
-    const classes = useStyles();
+export const Recomendation = () => {
 
     const [checked, setChecked] = useState(true);
     const [dataBooks, setData] = useState([])
@@ -66,6 +38,7 @@ const Recomendation = () => {
 
     // API: Getting book data
     const getBooks = async () => {
+
         const { data } = await axios.get("/api/books");
         //For Autocomplete component displaying
         setData(data.data)
@@ -74,6 +47,7 @@ const Recomendation = () => {
         for (let book in data.data) {
             arrTitles.push(data.data[book].title);
         }
+
         // For Verify an existent book
         setArrBooks(arrTitles)
     }
@@ -83,7 +57,6 @@ const Recomendation = () => {
         getBooks();
     }, []);
 
-    //
     const getRecomendations = async innerHTML => {
         setRowsRec([])
         setChecked(true);
@@ -113,13 +86,13 @@ const Recomendation = () => {
     }
 
     return (
-        <div className="outer-rec" style={{ marginTop: "50px" }}>
-            <main className="rec section">
-                <div className="rec-l" style={{ height: checked ? "fit-content" : "auto" }}>
-                    <div className="outer-section-title">
-                        <h2 className="section-title">Get your own recommendations</h2>
-                    </div>
-                    <form className={classes.root} noValidate autoComplete="off">
+        <main id="recomendation">
+            <div className="block content w-65 form">
+                <div className="section-title-container">
+                    <h2 className="section-title">Get your own recommendations</h2>
+                </div>
+                <div className="form-container">
+                    <form noValidate autoComplete="off">
                         <div className="input-container">
                             {/* <label htmlFor="">Book #1</label> */}
                             <Autocomplete
@@ -136,16 +109,14 @@ const Recomendation = () => {
                             />
                         </div>
                     </form>
-                    <div className="btn-s-container">
-                    </div>
                 </div>
                 {!checked &&
-                    <div className={checked ? "collapse" : "rec-r"}>
-                        <div className="form-title" style={{ overflow: "hidden", minWidth: "200px" }}>
-                            <span className="f-title">Nuestras recomendaciones</span>
+                    <div className={checked ? "collapse" : "black-content rec-r"}>
+                        <div className="section-title-container" style={{ overflow: "hidden", minWidth: "200px" }}>
+                            <h2 className="section-title">Nuestras recomendaciones</h2>
                         </div>
                         <TableContainer component={Paper}>
-                            <Table className={classes.table} aria-label="customized table">
+                            <Table aria-label="customized table">
                                 <TableHead>
                                     <TableRow>
                                         <StyledTableCell>Book Title</StyledTableCell>
@@ -171,42 +142,51 @@ const Recomendation = () => {
                             </Table>
                         </TableContainer>
                     </div>
-
                 }
-            </main>
+            </div>
 
-            
+            <div className="block-content w-65 top-rated">
 
-            <div className="block-content"  style={{width: "100%", background: "#F0F1F4", padding: "20px 17.5% 40px", marginTop: "100px"}}>
-                <div className="outer-section-title">
+                <div className="section-title-container">
                     <h2 className="section-title">Top Rated</h2>
                 </div>
-                <div className="books-row">
-                    <div>
-                        <img src="/images/books/thedavincicode.jpg" className="book-cover" alt="" />
-                    </div>
-                    <div>
-                        <img src="/images/books/wildanimus.jpg" className="book-cover" alt="" />
-                    </div>
 
-                    <Media query="(max-width:1200px)" render={() => (<div className="break"></div>)} />
-
-                    <div>
-                        <img src="/images/books/apaintedhouse.jpg" className="book-cover" alt="" />
-                    </div>
-                    <div>
-                        <img src="/images/books/theredtent.jpg" className="book-cover" alt="" />
-                    </div>
+                <div className="flex-books">
+                    <BookCard title="The Da Vinci Code" imgName="thedavincicode" />
+                    <BookCard title="Wild Animus" imgName="wildanimus" />
+                    <Media query="(max-width:1078px)" render={() => (<div className="break"></div>)} />
+                    <BookCard title="A Painted House" imgName="apaintedhouse" />
+                    <BookCard title="The Red Tent" imgName="theredtent" />
                     {/* <img src="/images/books/thelovelybonesanovel.jpg" className="book-cover" alt=""/> */}
-                </div>
-                <div className="article-footer c-link-rec">
-                    {/* <CustomBtn to="/recomendation" className="button2">hola</CustomBtn> */}
-                    
                 </div>
             </div>
 
-        </div>
-    );
-};
+            <div className="block-content w-65 about-project">
+                <div className="section-title-container">
+                    <h2 className="section-title">The Black Swan Project</h2>
+                </div>
+                <div className="project-text">
+                    <p>
+                        This project is the result of two weeks of hard work by all the members of the team.
+                        As a team, we have learned a wide variety of skills, from programming and statistics to time management and work distribution.
+                    </p>
+                    <p>
+                        The Black Swan is presented as a final project for the IA & Machine Learning course
+                        directed by Fundación Esplai and financed by the SOC (Servei d'Ocupació de Catalunya) and the European Social Fund.
+                    </p>
+                    <p>
 
-export default Recomendation;
+                        We thank all the institutions and people who have participated
+                        in the realization of this course and all the resulting projects.
+                    </p>
+                </div>
+                <div className="flex-orgs">
+                    <img src="/images/recomendations/fundacio.png" alt="" />
+                    <img src="/images/recomendations/european.png" alt="" />
+                    <div className="break"></div>
+                    <img src="/images/recomendations/soc.jpg" alt="" />
+                </div>
+            </div>
+        </main>
+    );
+}

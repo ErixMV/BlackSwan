@@ -1,0 +1,76 @@
+@import 'src/mixins.sass'
+    
+#about
+    .our-values,
+    .our-team
+        transition: all .5s
+
+    .our-values:hover,
+    .our-team:hover
+        background: rgb(240, 241, 244)
+
+
+    .our-values
+
+        .socrates
+            display: flex
+            width: fit-content
+            margin: auto
+
+            div
+                align-self: center
+                padding: 0 1rem
+
+            .socrates-img
+                height: 100px
+
+            .quote
+                text-align: center
+
+                .socrates-credits
+                    padding-top: 20px
+            
+        .ideology
+            text-align: justify
+            margin-top: 40px 
+            line-height: 1.6
+            letter-spacing: .02rem
+            // ! To global settings
+            font-size: .985em
+
+            .ideal
+                display: block
+
+            p
+                text-indent: 10px
+    
+    .our-team
+
+        .members
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            @include medium
+                flex-direction: column
+            
+            .member-card
+                @include medium
+                    width: 270px
+                    margin: 10px auto
+
+        
+            .member-photo
+                border-radius: 50%
+                height: 250px
+                padding: 30px
+
+            .member-info
+                text-align: center
+            
+            .buttons
+                display: flex
+                justify-content: space-around
+                width: 100%
+
+                .member-icon
+                    width: 40px
