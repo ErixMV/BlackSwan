@@ -14,7 +14,7 @@ export const Home = () => {
         <main className="section" id="home">
             <div className="block-content w-65" style={{ textAlign: "center" }}>
                 <div className="section-title-container" style={{ margin: "0px auto 40px" }}>
-                    <h2 className="section-title">Looking for you new favourite book</h2>
+                    <h2 className="section-title">Looking for your new favourite book</h2>
                 </div>
                 <div className="subtitle">
                     <h3>Start a new adventure!</h3>
@@ -31,7 +31,7 @@ export const Home = () => {
                 <div className="discover-content">
                     <div className="discover-text">
                         <p>
-                            Get your very own recommendations from a large database. It's simple: you choose one book that you like,
+                            Get your own recommendations from a large database of books of various genres. It's simple: you choose one book that you like,
                             and we will show you books that you're likely to enjoy aswell.
                         </p>
                     </div>

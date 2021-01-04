@@ -12,7 +12,7 @@ const MemberCard = ({member, extension, fullname, title, linkedin, email}) => {
                 <div className="photo">
                     <img className="member-photo" src={`${profilePath}${member}.${extension}`} alt="Member profile" />
                 </div>
-                <div className="member-name">
+                <div className="member-info">
                     <b className="name">{fullname}</b>
                     <p>{title}</p>
                 </div>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const Button = props => {
 
-    const { to, text } = props;
+    const { to, text, onClick } = props;
 
     return (
-        <Link to={to} className="custom-btn btn-type1 type1">{text}</Link>
+        <Link to={to} onClick={onClick || ""} className="custom-btn btn-type1 type1">{text}</Link>
     );
 }

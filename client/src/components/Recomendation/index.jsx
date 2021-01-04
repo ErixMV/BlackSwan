@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Media from 'react-media';
 
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import { BookCard } from './BookCard';
@@ -87,7 +87,7 @@ export const Recomendation = () => {
 
     return (
         <main id="recomendation">
-            <div className="block content w-65 form">
+            <div className="block-content w-65 form">
                 <div className="section-title-container">
                     <h2 className="section-title">Get your own recommendations</h2>
                 </div>
@@ -110,40 +110,40 @@ export const Recomendation = () => {
                         </div>
                     </form>
                 </div>
-                {!checked &&
-                    <div className={checked ? "collapse" : "black-content rec-r"}>
-                        <div className="section-title-container" style={{ overflow: "hidden", minWidth: "200px" }}>
-                            <h2 className="section-title">Nuestras recomendaciones</h2>
-                        </div>
-                        <TableContainer component={Paper}>
-                            <Table aria-label="customized table">
-                                <TableHead>
-                                    <TableRow>
-                                        <StyledTableCell>Book Title</StyledTableCell>
-                                        {/* <StyledTableCell align="right">Calories</StyledTableCell>
+            </div>
+            {!checked &&
+                <div className={checked ? "collapse" : "block-content w-65 recomendations-list"}>
+                    <div className="section-title-container" style={{ overflow: "hidden", minWidth: "200px" }}>
+                        <h2 className="section-title">Nuestras recomendaciones</h2>
+                    </div>
+                    <TableContainer component={Paper}>
+                        <Table aria-label="customized table">
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>Book Title</StyledTableCell>
+                                    {/* <StyledTableCell align="right">Calories</StyledTableCell>
                                     <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
                                     <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
                                     <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell> */}
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {rowsRec.map((row) => (
-                                        <StyledTableRow key={row.book}>
-                                            <StyledTableCell component="th" scope="row">
-                                                {row.book}
-                                            </StyledTableCell>
-                                            {/* <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rowsRec.map((row) => (
+                                    <StyledTableRow key={row.book}>
+                                        <StyledTableCell component="th" scope="row">
+                                            {row.book}
+                                        </StyledTableCell>
+                                        {/* <StyledTableCell align="right">{row.calories}</StyledTableCell>
                                         <StyledTableCell align="right">{row.fat}</StyledTableCell>
                                         <StyledTableCell align="right">{row.carbs}</StyledTableCell>
                                         <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
-                                        </StyledTableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </div>
-                }
-            </div>
+                                    </StyledTableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
+            }
 
             <div className="block-content w-65 top-rated">
 
@@ -154,7 +154,7 @@ export const Recomendation = () => {
                 <div className="flex-books">
                     <BookCard title="The Da Vinci Code" imgName="thedavincicode" />
                     <BookCard title="Wild Animus" imgName="wildanimus" />
-                    <Media query="(max-width:1078px)" render={() => (<div className="break"></div>)} />
+                    <Media query="(max-width:1024px)" render={() => (<div className="break"></div>)} />
                     <BookCard title="A Painted House" imgName="apaintedhouse" />
                     <BookCard title="The Red Tent" imgName="theredtent" />
                     {/* <img src="/images/books/thelovelybonesanovel.jpg" className="book-cover" alt=""/> */}
@@ -184,9 +184,9 @@ export const Recomendation = () => {
                     <img src="/images/recomendations/fundacio.png" alt="" />
                     <img src="/images/recomendations/european.png" alt="" />
                     <div className="break"></div>
-                    <img src="/images/recomendations/soc.jpg" alt="" />
+                    <img className="img-large-soc" src="/images/recomendations/soc.jpg" alt="" />
                 </div>
             </div>
-        </main>
+        </main >
     );
 }

@@ -1,3 +1,5 @@
+@import "src/mixins.sass"
+
 #header
     padding: 10px 0px
     .inner-header
@@ -5,6 +7,9 @@
             width: fit-content
             margin: auto
             display: flex
+            @include small
+                margin-left: 20px
+                width: 70vw
 
             .logo
                 height: 60px
@@ -12,3 +17,5 @@
             #title
                 align-self: center
                 font-size: 2rem
+                @include small
+                    font-size: 1.6rem

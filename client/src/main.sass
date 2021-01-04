@@ -1,0 +1,42 @@
+@import "mixins.sass"
+@import "boxes.sass"
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    color: #333
+
+code 
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace
+
+
+body 
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+svg 
+    width: 200px
+    height: 200px
+
+a 
+    text-decoration: none
+
+
+.break 
+    height: 0
+    flex-basis: 100%
+
+//* Not used
+hr 
+    width: 12%
+    margin-left: 0px
+    // margin: auto
+
+
+.bm-item-list a
+    width: fit-content
+    margin: auto
+    color: #eee

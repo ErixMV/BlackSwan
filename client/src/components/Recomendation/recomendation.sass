@@ -1,33 +1,51 @@
+@import "src/mixins.sass"
+    
 #recomendation
+
+    .block-content
+        transition: all .5s
+        &:hover
+            background: #f0f1f4
+
+
     .form
         .form-container
             form
                 .input-container
                     width: fit-content
                     margin: auto
-        .rec-r
-            margin-top: 40px
+    .recomendations-list
+        margin-top: 40px
 
-            .form-title
-                font-size: 1.5rem
-            
-            .MuiPaper-root
-                width: 300px
+        .form-title
+            font-size: 1.5rem
+        
+        .MuiPaper-root
+            width: 300px
 
     .top-rated
         .flex-books
             display: flex
             flex-wrap: wrap
             justify-content: space-between
+            @include medium
+                justify-content: space-evenly
 
             .book-card
                 position: relative
+                @include small
+                    flex-basis: 100%
+                    text-align: center
 
                 img
                     height: 350px
-                    // margin: 10px 0
+                    width: 225px
+                    @include large
+                        width: 192px
+                        height: 300px
+                        // margin: 10px 0
 
-                .test
+                .overflow-label
                     position: absolute
                     width: 100%
                     height: 100%
@@ -67,3 +85,8 @@
             img
                 height: 80px
                 margin: 15px 5px
+            
+            .img-large-soc
+                @include small
+                    width: 90%
+                    height: auto

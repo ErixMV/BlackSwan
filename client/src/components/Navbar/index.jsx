@@ -1,6 +1,7 @@
 import "./navbar.sass";
 
 import { Button } from '../common/Button/Button';
+// import { BurgerMenu } from './Menu';
 
 export const Navbar = () => {
     return (
@@ -12,6 +13,7 @@ export const Navbar = () => {
                     <li className="nav-item"><Button to="/about" text="About Us" /></li>
                 </ul>
             </div>
+            {/* <BurgerMenu/> */}
         </nav>
     );
 };
