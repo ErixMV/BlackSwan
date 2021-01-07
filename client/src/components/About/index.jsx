@@ -4,9 +4,9 @@ import MemberCard from './MemberCard';
 export const About = () => {
 
     const members = [
-        { member: "erix", extension: "png", fullname: "Erix Mamani Villacresis", title: "Full Stack Developer", linkedin: "https://www.linkedin.com/in/erixmamani/", email: "erixmv022@gmail.com" },
+        { member: "erix", extension: "png", fullname: "Erix Mamani Villacresis", title: "Web Developer", linkedin: "https://www.linkedin.com/in/erixmamani/", email: "erixmv022@gmail.com" },
         { member: "vladimir", extension: "jfif", fullname: "Vladimir Smirnov", title: "Data Scientist", linkedin: "https://www.linkedin.com/in/vladismirn/", email: "vsmirn00@gmail.com" },
-        { member: "adelina", extension: "jpeg", fullname: "Adelina Muntean", title: "Junior Web Developer", linkedin: "https://www.linkedin.com/in/adelina-muntean/", email: "adelina.muntean97@gmail.com" }
+        { member: "adelina", extension: "jpeg", fullname: "Adelina Muntean", title: "Junior Developer", linkedin: "https://www.linkedin.com/in/adelina-muntean/", email: "adelina.muntean97@gmail.com" }
     ];
 
     const renderMembers = ({ member, extension, fullname, title, linkedin, email }, i) =>

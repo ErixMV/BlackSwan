@@ -114,7 +114,7 @@ export const Recomendation = () => {
             {!checked &&
                 <div className={checked ? "collapse" : "block-content w-65 recomendations-list"}>
                     <div className="section-title-container" style={{ overflow: "hidden", minWidth: "200px" }}>
-                        <h2 className="section-title">Nuestras recomendaciones</h2>
+                        <h2 className="section-title">Similar Books</h2>
                     </div>
                     <TableContainer component={Paper}>
                         <Table aria-label="customized table">
